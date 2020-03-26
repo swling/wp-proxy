@@ -25,7 +25,7 @@ if (empty($_GET['url'])) {
 
 $url  = $_GET['url'];
 $urls = parse_url($url);
-if ($urls['host'] !== 'api.wordpress.org' && $urls['host'] !== 'downloads.wordpress.org') {
+if (!in_array($urls['host'], ['api.wordpress.org', 'downloads.wordpress.org', 'wordpress.org'])) {
 	exit('仅代理WordPress');
 }
 
